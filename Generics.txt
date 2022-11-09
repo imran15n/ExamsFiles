@@ -17,7 +17,7 @@ namespace Generics
     {
         // private generic collection
 
-        List<T> myList = new List<T> ();
+        private List<T> myList = new List<T> ();
 
         public static void Add(T item)
         {
