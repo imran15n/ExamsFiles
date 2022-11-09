@@ -1,0 +1,43 @@
+namespace EventHandler
+{
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            Publisher.practiceEvent += Subscriber.subscriberOne; //Subscribing to the event 
+
+            Publisher.processStartComplete("Imran", 25);
+            
+        }
+    }
+
+    public class Publisher
+    {
+        public static event EventHandler<Subscribers> practiceEvent; // declare event with builtin delegate EventHandler
+        public static void processStartComplete(string name, int age)
+        {
+            Console.WriteLine("Process Start");
+           
+            practiceEvent?.Invoke(null, new Subscribers { name = name, age = age });
+
+            Console.WriteLine("Process Complete");
+
+
+        }
+    }
+    // Event handler
+    public class Subscriber
+    {
+        public static void subscriberOne(Object sender, Subscribers s)
+        {
+            Console.WriteLine($"Subscriber 1 name = {s.name} and age = {s.age}");
+        }
+    }
+
+    // Custom EventArgs Class
+    public class Subscribers : EventArgs
+    {
+        public String name { get; set; }
+        public int age { get; set; }
+    }
+}

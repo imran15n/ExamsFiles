@@ -1,0 +1,37 @@
+namespace Generics
+{
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            GenericTest<int>.Add(1);
+            GenericTest<int>.Add(2);
+            GenericTest<int>.Add(3);
+            GenericTest<int>.ReturnsItem(3);
+            GenericTest<int>.sortedDesc();
+
+        }
+    }
+
+    public class GenericTest<T> where T : struct
+    {
+        // private generic collection
+
+        List<T> myList = new List<T> ();
+
+        public static void Add(T item)
+        {
+             myList.Add(item);
+        } 
+
+        public static T ReturnsItem(T item)
+        {
+            myList.Remove(item);
+        }
+
+        public static List<T> sortedDesc()
+        {
+            mylist.Reverse();
+        }
+    }
+}
