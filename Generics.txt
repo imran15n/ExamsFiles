@@ -7,7 +7,7 @@ namespace Generics
             GenericTest<int>.Add(1);
             GenericTest<int>.Add(2);
             GenericTest<int>.Add(3);
-            GenericTest<int>.ReturnsItem(3);
+            GenericTest<int>.ReturnsItem();
             GenericTest<int>.sortedDesc();
 
         }
