@@ -15,23 +15,27 @@ namespace Generics
 
     public class GenericTest<T> where T : struct
     {
+    
         // private generic collection
 
-        private List<T> myList = new List<T> ();
+           private static List<T> _myList = new List<T> ();
 
-        public static void Add(T item)
-        {
-             myList.Add(item);
-        } 
 
-        public static T ReturnsItem(T item)
-        {
-            myList.Remove(item);
-        }
 
-        public static List<T> sortedDesc()
-        {
-            mylist.Reverse();
-        }
+            public static void Add(T item)
+            {
+                _myList.Add(item);
+            } 
+
+            public static void returnsItems()
+            {
+                Console.WriteLine("Returning Items");
+                _myList.ForEach(num => Console.WriteLine(num)); 
+            }
+
+            public static List<T> sortedDesc()
+            {
+                mylist.Reverse();
+            }
     }
 }
